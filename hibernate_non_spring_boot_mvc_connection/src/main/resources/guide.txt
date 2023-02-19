@@ -1,0 +1,17 @@
+1. Как добавить hibernate в не Spring Boot-MVC-проект?
+1. Создать приложение из maven archetype “webapp”, добавить зависимости spring context,
+ spring beans, добавить папку resources.
+2. В проекте нажать add framework support и выбрать Hibernate. После этого создастся в
+ папке src файл hibernate.cfg.xml.
+3. Установить mysql connector J. Далее нажать File – Project Structure –  + и добавить
+ скаченную библиотеку.
+4. В файл записать базовую конфигурацию для session factory: файл .
+5. В Maven добавить зависимости hibernate core, hibernate commons annotations.
+6. Создать папку entity и в ней создать класс, на него повесить аннотации @Entity,
+ @Table(name = ‘employee’), добавить конструктор без аргументов, на каждое поле установить
+  аннотацию @Column(name = ‘id’), на id установить @Id, @GeneratedValue.
+7. Создать класс с методом main(), в нем создать объект для создания сессий:
+ SessionFactory sf = new Configuration().configure().addAnnotatedClass(Employee.class).buildSessionFactory()
+  – открыть блок try/catch – в блоке try написать Session session = sf.getCurrentSession(),
+   session.beginTransaction()  и дальше написать логику. Далее закоммитить резульат
+    session.getTransaction().commit() и в блоке finally закрыть транзакцию: session.close, factory.close().

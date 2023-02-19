@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/authentication_jwt_token_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authentication_jwt_token_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exception_handler_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exception_handler_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flyway_connection/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flyway_connection/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hibernate_model_variations/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hibernate_model_variations/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hibernate_non_spring_boot_mvc_connection/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hibernate_non_spring_boot_mvc_connection/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_core_cheat_sheet/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_core_cheat_sheet/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mail_service_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mail_service_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongodb_migration_connection/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongodb_migration_connection/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongodb_test_containers_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongodb_test_containers_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multipart_file_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/multipart_file_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests_data_jpa_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests_data_jpa_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests_mokito_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests_mokito_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/validation_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/validation_realization/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

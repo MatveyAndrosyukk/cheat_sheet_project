@@ -1,0 +1,2 @@
+model -> repositories ->  service -> jwt(user, factory, details, exception provider, filter, configurer)
+ -> config -> dto -> auth service -> controller

@@ -1,0 +1,1 @@
+зависимости(flyway core, flyway mysql) -> папки db.migration + скрипт -> в properties поставить validate
