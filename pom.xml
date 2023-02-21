@@ -24,6 +24,13 @@
     <module>tests_data_jpa_realization</module>
     <module>tests_mokito_realization</module>
     <module>validation_realization</module>
+    <module>webclient_realization</module>
+    <module>microservices_realization</module>
+    <module>microservices_realization/product-service</module>
+    <module>microservices_realization/inventory-service</module>
+    <module>microservices_realization/order-service</module>
+    <module>microservices_realization/discovery-server</module>
+    <module>microservices_realization/api-gateway</module>
   </modules>
 
   <build>

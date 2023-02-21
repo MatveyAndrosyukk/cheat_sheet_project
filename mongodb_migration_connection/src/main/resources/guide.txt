@@ -1,5 +1,6 @@
 1. добавить mongoDb в maven.
 2. добавить dependencyManagement с зависимостью mongock-bom
 3. добавить зависимости (mongock-spring-v5, mongodb-springdata-v3-driver)
-4. создать модель
-5. создать config.
+4. добавить properties для mongodb uri и mongock scan
+5. создать модель
+6. создать config.

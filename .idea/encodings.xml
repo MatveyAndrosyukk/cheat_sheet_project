@@ -15,6 +15,13 @@
     <file url="file://$PROJECT_DIR$/java_core_cheat_sheet/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mail_service_realization/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mail_service_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/discovery-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/inventory-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices_realization/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mongodb_migration_connection/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mongodb_migration_connection/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mongodb_test_containers_realization/src/main/java" charset="UTF-8" />
@@ -29,5 +36,6 @@
     <file url="file://$PROJECT_DIR$/tests_mokito_realization/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/validation_realization/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/validation_realization/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webclient_realization/src/main/java" charset="UTF-8" />
   </component>
 </project>
