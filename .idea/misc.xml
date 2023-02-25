@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/hibernate-non-spring-boot-mvc-connection" />
     <file type="web" url="file://$PROJECT_DIR$/hibernate/connection-to-non-spring-boot-project" />
+    <file type="web" url="file://$PROJECT_DIR$/java-enterprise-edition" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

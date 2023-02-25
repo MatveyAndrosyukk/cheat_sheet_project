@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/hibernate-non-spring-boot-mvc-connection/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/hibernate-model-variations/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/migration-flyway-connection/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/exception-handler-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/authentication-jwt-token-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java-core/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/mail-service-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/tests-data-jpa-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/tests-mongodb-test-containers-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/tests-mokito-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/webclient-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/microservices-realization/product-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/microservices-realization/inventory-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/microservices-realization/order-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/microservices-realization/discovery-server/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/microservices-realization/api-gateway/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/a-a-a-a/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/n-n-n-b-f/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/authentication/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/authentication/jwt-token-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/migration/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/migration/flyway-connection/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/tests/data-jpa-realization/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java-enterprise-edition/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mail-service-realization" />
+        <module name="model-types" />
+        <module name="java-enterprise-edition" />
+        <module name="product-service" />
+        <module name="webclient-realization" />
+        <module name="connection-to-non-spring-boot-project" />
+        <module name="notification-service" />
+        <module name="mongodb-connection" />
+        <module name="inventory-service" />
+        <module name="discovery-server" />
+        <module name="flyway-connection" />
+        <module name="exception-handler-realization" />
+        <module name="api-gateway" />
+        <module name="mokito-realization" />
+        <module name="order-service" />
+        <module name="multipart-file-realization" />
+        <module name="data-jpa-realization" />
+        <module name="java-core" />
+        <module name="mongodb-test-containers-realization" />
+        <module name="validation-realization" />
+        <module name="jwt_token_realization" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="a-a-a-a" target="17" />
+      <module name="authentication" target="17" />
+      <module name="authentication-jwt-token-realization" target="19" />
+      <module name="hibernate-model-variations" target="19" />
+      <module name="hibernate-non-spring-boot-mvc-connection" target="19" />
+      <module name="jwt-token-realization" target="19" />
+      <module name="migration-flyway-connection" target="19" />
+      <module name="migration-mongodb-connection" target="17" />
+      <module name="n-n-n-b-f" target="17" />
+      <module name="tests-data-jpa-realization" target="17" />
+      <module name="tests-mokito-realization" target="17" />
+      <module name="tests-mongodb-test-containers-realization" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="a-a-a-a" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="authentication" options="-parameters" />
+      <module name="authentication-jwt-token-realization" options="-parameters" />
+      <module name="connection-to-non-spring-boot-project" options="-parameters" />
+      <module name="data-jpa-realization" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
+      <module name="exception-handler-realization" options="-parameters" />
+      <module name="flyway-connection" options="-parameters" />
+      <module name="hibernate" options="" />
+      <module name="hibernate-model-variations" options="-parameters" />
+      <module name="hibernate-non-spring-boot-mvc-connection" options="-parameters" />
+      <module name="inventory-service" options="-parameters" />
+      <module name="java-core" options="-parameters" />
+      <module name="java-enterprise-edition" options="-parameters" />
+      <module name="jwt-token-realization" options="-parameters" />
+      <module name="jwt_token_realization" options="-parameters" />
+      <module name="mail-service-realization" options="-parameters" />
+      <module name="microservices-realization" options="" />
+      <module name="migration" options="" />
+      <module name="migration-flyway-connection" options="-parameters" />
+      <module name="migration-mongodb-connection" options="-parameters" />
+      <module name="model-types" options="-parameters" />
+      <module name="mokito-realization" options="-parameters" />
+      <module name="mongodb-connection" options="-parameters" />
+      <module name="mongodb-test-containers-realization" options="-parameters" />
+      <module name="multipart-file-realization" options="-parameters" />
+      <module name="n-n-n-b-f" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="security_authentication" options="" />
+      <module name="tests" options="" />
+      <module name="tests-data-jpa-realization" options="-parameters" />
+      <module name="tests-mokito-realization" options="-parameters" />
+      <module name="tests-mongodb-test-containers-realization" options="-parameters" />
+      <module name="validation-realization" options="-parameters" />
+      <module name="webclient-realization" options="-parameters" />
+    </option>
+  </component>
+</project>
