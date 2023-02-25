@@ -1,0 +1,56 @@
+1.начало:
+1.1. написать каждый микросервис, как отдельное приложение.
+1.2. создать пустой maven-проект и добавить в него другие пустые maven-проекты.
+1.3. добавить общую часть pom-файлов микросервисов в родительский pom-файл, добавить зависимости в каждый pom-файл.
+1.4. скопировать src каждого проекта в нужный микросервис.
+1.5. реализовать общение между микросервисами используя webclient(spring reactive web).
+
+2.добавление SERVICE DISCOVERY(для удобного общения микросервисов без указания порта):
+2.1. создать новый микросервис discovery_server и добавить зависимость от eureka server.
+2.2. на main-классе установить аннотацию @EnableEurekaServer.
+2.3. добавить нужные properties: #DISCOVERY SERVER PROPERTIES.
+2.4. в каждый микросервис добавить зависимость eureka client и аннотации на main-класс @EnableDiscoveryClient
+ и application.properties: #DISCOVERY CLIENT PROPERTIES.
+2.5. установить каждому микросервису properties: #MICROSERVICE PROPERTIES.
+2.6. зайти в edit configurations -> allow multiply instances, что позволит запускать несколько инстансов этого сервиса.
+2.7. изменить создание бина webclient(comment: after discovery server).
+
+3. добавление API GATEWAY(для обращения к микросервисам из клиентской части по одному порту):
+3.1. создать новый микросерис и добавить зависимость api-gateway.
+3.2. сделать микросервис клиентом, как в пункте 2.4.
+3.3. добавить маршруты к каждому микросервису в properties: #GATEWAY PROPERTIES.
+
+4. добавление KEYCLOAK-АУТЕНТИФИКАЦИИ:
+4.1. запустить docker-контейнер с keycloak(docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.5 start-dev).
+4.2. зайти по адресу http://localhost:8181 -> administration console -> создать realm(spring-boot-microservices-realm) ->
+ создать client(spring-cloud-client) -> установить access type: confidential(т.к. к этим микросервисам запросы будут
+ не от приложения, а от postman) -> выключить standart flow, direct access grants -> включить service account ->
+ перейти в realm settings, OpenId... и скопировать url из поля issuer.
+4.3. добавить в api-gateway 2 зависимости: security, oauth2-resource-server и в properties: #OAUTH2.0 PROPERTIES.
+4.4. создать config.
+4.5. чтобы протестировать в postman, нужно сделать запрос на нужный микросервис -> authorization -> OAuth2.0 ->
+ token name: token -> grant type: client credentials -> access token url: из поля token_endpoint -> client id:
+ id созданного клиента(spring-cloud-client) -> client secret: secret клиента -> scope: openid offline_access.
+4.6. чтобы заходить на discovery server из браузера, нужно доабвить в него security -> config -> properties.
+4.7. заменить во всех клиентах discovery server в properties: serviceUrl.defaultZone.
+
+5. добавление CIRCUIT BREAKER(для обработки проблем при общении микросервисов[если микросервис недоступен или долго обрабатывает запрос]):
+5.1. перейти к микросервису, который отправляет запросы на другой микросервис и добавить зависимости:
+ spring-cloud-starter-circuitbreaker-resilience4j, spring-boot-starter-actuator.
+5.2. добавить в него properties: #CIRCUIT BREAKER PROPERTIES, #RESILIENCE4j PROPERTIES -> #Resilience4j default properties.
+5.3. изменить controller: добавить аннотации @CircuitBreaker, метод для обработки ошибки.
+5.4. добавить обработчик времени ожидания: @TimeLimiter, CompletableFuture в response type,properties: #RESILIENCE4j PROPERTIES ->
+ #Resilience4j timeout properties
+5.5. добавить retry запроса: properties: #RESILIENCE4j PROPERTIES -> #Resilience4j retry properties, аннотация @Retry.
+(чтобы узнать статус circuitbreaker'a, нужно пройти по url: http://localhost:порт/actuator/health).
+
+6. добавление EVENT DRIVEN ARCHITECTURE используя KAFKA(для добавления сторонней логики(например отправка email)):
+6.1. создать файл docker-compose.yml и вставить туда содержимое сайта kafka -> quickstart -> docker и запустить командой docker compose up -d.
+6.2. в зависимости сервиса, который отправляет запрос на другой сервис(order-service) добавить зависимость spring-kafka
+ и properties: #KAFKA PROPERTIES -> #Kafka default properties.
+6.3. в OrderService добавить реализацию kafka(comments: after adding kafka) и properties: #KAFKA PROPERTIES -> #Kafka topic properties
+6.4. добавить новый микросервис notification-service с зависимостями: web, spring-kafka, discovery-client.
+6.5. сделать сервис клиентом, как в пункте 2.4.
+6.6. добавить метод с аннотацией @KafkaListener в NotificationServiceApplication.
+6.7. добавить properties: #KAFKA PROPERTIES
+

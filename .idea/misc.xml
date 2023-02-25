@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/hibernate_non_spring_boot_mvc_connection" />
+    <file type="web" url="file://$PROJECT_DIR$/hibernate-non-spring-boot-mvc-connection" />
+    <file type="web" url="file://$PROJECT_DIR$/hibernate/connection-to-non-spring-boot-project" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -10,6 +11,21 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/hibernate_model_variations/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/a-a-a-a/pom.xml" />
+        <option value="$PROJECT_DIR$/authentication-jwt-token-realization/pom.xml" />
+        <option value="$PROJECT_DIR$/authentication/pom.xml" />
+        <option value="$PROJECT_DIR$/hibernate-model-variations/pom.xml" />
+        <option value="$PROJECT_DIR$/hibernate-non-spring-boot-mvc-connection/pom.xml" />
+        <option value="$PROJECT_DIR$/migration-flyway-connection/pom.xml" />
+        <option value="$PROJECT_DIR$/migration-mongodb-connection/pom.xml" />
+        <option value="$PROJECT_DIR$/n-n-n-b-f/pom.xml" />
+        <option value="$PROJECT_DIR$/tests-data-jpa-realization/pom.xml" />
+        <option value="$PROJECT_DIR$/tests-mokito-realization/pom.xml" />
+        <option value="$PROJECT_DIR$/tests-mongodb-test-containers-realization/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">

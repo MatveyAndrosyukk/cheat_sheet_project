@@ -12,25 +12,23 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>authentication_jwt_token_realization</module>
-    <module>exception_handler_realization</module>
-    <module>flyway_connection</module>
-    <module>hibernate_non_spring_boot_mvc_connection</module>
-    <module>java_core_cheat_sheet</module>
-    <module>mail_service_realization</module>
-    <module>multipart_file_realization</module>
-    <module>mongodb_migration_connection</module>
-    <module>mongodb_test_containers_realization</module>
-    <module>tests_data_jpa_realization</module>
-    <module>tests_mokito_realization</module>
-    <module>validation_realization</module>
-    <module>webclient_realization</module>
-    <module>microservices_realization</module>
-    <module>microservices_realization/product-service</module>
-    <module>microservices_realization/inventory-service</module>
-    <module>microservices_realization/order-service</module>
-    <module>microservices_realization/discovery-server</module>
-    <module>microservices_realization/api-gateway</module>
+    <module>exception-handler-realization</module>
+    <module>java-core-cheat-sheet</module>
+    <module>mail-service-realization</module>
+    <module>multipart-file-realization</module>
+    <module>validation-realization</module>
+    <module>webclient-realization</module>
+    <module>microservices-realization</module>
+    <module>microservices-realization/product-service</module>
+    <module>microservices-realization/inventory-service</module>
+    <module>microservices-realization/order-service</module>
+    <module>microservices-realization/discovery-server</module>
+    <module>microservices-realization/api-gateway</module>
+    <module>microservices-realization/notification-service</module>
+    <module>migration</module>
+    <module>tests</module>
+    <module>hibernate</module>
+    <module>security_authentication</module>
   </modules>
 
   <build>

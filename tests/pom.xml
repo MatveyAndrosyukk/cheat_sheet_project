@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>cheat_sheet_project</artifactId>
+        <groupId>project_structure</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>tests</artifactId>
+    <packaging>pom</packaging>
+    <name>Archetype - tests</name>
+    <url>http://maven.apache.org</url>
+    <modules>
+        <module>data-jpa-realization</module>
+        <module>mokito-realization</module>
+        <module>mongodb-test-containers-realization</module>
+    </modules>
+</project>
