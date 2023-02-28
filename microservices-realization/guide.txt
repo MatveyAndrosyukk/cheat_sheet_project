@@ -20,7 +20,7 @@
 3.2. сделать микросервис клиентом, как в пункте 2.4.
 3.3. добавить маршруты к каждому микросервису в properties: #GATEWAY PROPERTIES.
 
-4. Добавление KEYCLOAK-АУТЕНТИФИКАЦИИ:
+4. Добавление KEYCLOAK-АВТОРИЗАЦИИ:
 4.1. запустить docker-контейнер с keycloak(docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.5 start-dev).
 4.2. зайти по адресу http://localhost:8181 -> administration console -> создать realm(spring-boot-microservices-realm) ->
  создать client(spring-cloud-client) -> установить access type: confidential(т.к. к этим микросервисам запросы будут
@@ -68,8 +68,22 @@
  на имя контейнера.
 7.4. добавить docker-compose.yml
 7.5. добавить data.sql в resources в микросервисы, которые используют sql-базы данных.
-7.6. запустить все контейнеры командой docker compose up -d
+7.6. запустить все контейнеры командой docker compose up -d.
+7.7. чтобы сработал keycloak, нужно снова зайти в keycloak в браузере, сгенерировать секретное слово и вставить его заново. Если
+ сделать запрос в postman, будет ответ Unauthorized, если посмотреть токен на сайте jwt.io, будет видно, что запрос идет на localhost:8080.
+ для этого нужно изменить в Access Token URL хост на keycloak. После этого нужно добавить в файл System32\drivers\ets\hosts запись:
+ 127.0.0.1 keycloak.
 
+8. Добавление Grafana(UI)(up time, start time, heap memory) и Prometheus(логи, статус) для изучения информации о микросервисах
+8.1. добавить зависимости в pom-файл корневого проекта: spring-actuator, micrometer-registry-prometheus и properties в каждый микросервис:
+ #Actuator Prometheus properties.
+8.2. в docker-compose добавить 2 контейнера: prometheus, grafana.
+8.3. добавить файл prometheus.yml по пути volumes/prometheus.
+8.4. перейти по пути localhost:9090 на Prometheus после запуска контейнеров. после этого возможно будет просматривать информацию о логах
+ во всех микровервисах, их статус и т.д.
+8.5. перейти по пути localhost:3000 на Grafana -> add datasource -> prometheus -> указать Name -> url: http://prometheus:9090 -> save.
+ после этого нужно добавить dashboard, для этого перейти на + -> import -> вставить информацию из файла Grafana_Dashboard.json ->
+ выбрать в поле Prometheus созданную datasource. после этого возможно будет просматривать память, процессор, время работы микросервисов.
 
 
 
