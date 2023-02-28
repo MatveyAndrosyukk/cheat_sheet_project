@@ -101,7 +101,7 @@ public class Main {
             Sensor sensor = session.get(Sensor.class, 1);
             session.delete(sensor);
             //или
-            session.createQuery("delete Sensor where id = 1").executeUpdate();
+            session.createQuery("delete from Sensor where id = 1").executeUpdate();
 
             session.getTransaction().commit();
         }catch (Exception exception){

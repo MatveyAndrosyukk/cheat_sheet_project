@@ -20,10 +20,8 @@
     <module>webclient-realization</module>
     <module>microservices-realization</module>
     <module>microservices-realization/product-service</module>
-    <module>microservices-realization/inventory-service</module>
     <module>microservices-realization/order-service</module>
     <module>microservices-realization/discovery-server</module>
-    <module>microservices-realization/api-gateway</module>
     <module>microservices-realization/notification-service</module>
     <module>migration</module>
     <module>tests</module>

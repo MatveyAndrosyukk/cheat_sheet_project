@@ -26,10 +26,4 @@ public class Product {
     private String description;
     @Field(name = "price")
     private BigDecimal price;
-
-    public Product(String name, String description, BigDecimal price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
 }

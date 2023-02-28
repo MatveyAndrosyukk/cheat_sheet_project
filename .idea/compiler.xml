@@ -42,8 +42,8 @@
         <module name="connection-to-non-spring-boot-project" />
         <module name="notification-service" />
         <module name="mongodb-connection" />
-        <module name="inventory-service" />
         <module name="discovery-server" />
+        <module name="inventory-service" />
         <module name="flyway-connection" />
         <module name="exception-handler-realization" />
         <module name="api-gateway" />

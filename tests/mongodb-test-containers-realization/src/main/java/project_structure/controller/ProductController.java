@@ -20,7 +20,11 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> handleGetAllProducts(){
-        return ResponseEntity.ok(productService.findAll());
+        List<ProductResponse> response = productService.findAll();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(response);
     }
 
     @PostMapping

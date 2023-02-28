@@ -1,11 +1,11 @@
-1.начало:
+1.Начало:
 1.1. написать каждый микросервис, как отдельное приложение.
 1.2. создать пустой maven-проект и добавить в него другие пустые maven-проекты.
 1.3. добавить общую часть pom-файлов микросервисов в родительский pom-файл, добавить зависимости в каждый pom-файл.
 1.4. скопировать src каждого проекта в нужный микросервис.
 1.5. реализовать общение между микросервисами используя webclient(spring reactive web).
 
-2.добавление SERVICE DISCOVERY(для удобного общения микросервисов без указания порта):
+2. Добавление SERVICE DISCOVERY(для удобного общения микросервисов без указания порта):
 2.1. создать новый микросервис discovery_server и добавить зависимость от eureka server.
 2.2. на main-классе установить аннотацию @EnableEurekaServer.
 2.3. добавить нужные properties: #DISCOVERY SERVER PROPERTIES.
@@ -15,12 +15,12 @@
 2.6. зайти в edit configurations -> allow multiply instances, что позволит запускать несколько инстансов этого сервиса.
 2.7. изменить создание бина webclient(comment: after discovery server).
 
-3. добавление API GATEWAY(для обращения к микросервисам из клиентской части по одному порту):
+3. Добавление API GATEWAY(для обращения к микросервисам из клиентской части по одному порту):
 3.1. создать новый микросерис и добавить зависимость api-gateway.
 3.2. сделать микросервис клиентом, как в пункте 2.4.
 3.3. добавить маршруты к каждому микросервису в properties: #GATEWAY PROPERTIES.
 
-4. добавление KEYCLOAK-АУТЕНТИФИКАЦИИ:
+4. Добавление KEYCLOAK-АУТЕНТИФИКАЦИИ:
 4.1. запустить docker-контейнер с keycloak(docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.5 start-dev).
 4.2. зайти по адресу http://localhost:8181 -> administration console -> создать realm(spring-boot-microservices-realm) ->
  создать client(spring-cloud-client) -> установить access type: confidential(т.к. к этим микросервисам запросы будут
@@ -34,7 +34,7 @@
 4.6. чтобы заходить на discovery server из браузера, нужно доабвить в него security -> config -> properties.
 4.7. заменить во всех клиентах discovery server в properties: serviceUrl.defaultZone.
 
-5. добавление CIRCUIT BREAKER(для обработки проблем при общении микросервисов[если микросервис недоступен или долго обрабатывает запрос]):
+5. Добавление CIRCUIT BREAKER(для обработки проблем при общении микросервисов[если микросервис недоступен или долго обрабатывает запрос]):
 5.1. перейти к микросервису, который отправляет запросы на другой микросервис и добавить зависимости:
  spring-cloud-starter-circuitbreaker-resilience4j, spring-boot-starter-actuator.
 5.2. добавить в него properties: #CIRCUIT BREAKER PROPERTIES, #RESILIENCE4j PROPERTIES -> #Resilience4j default properties.
@@ -44,7 +44,7 @@
 5.5. добавить retry запроса: properties: #RESILIENCE4j PROPERTIES -> #Resilience4j retry properties, аннотация @Retry.
 (чтобы узнать статус circuitbreaker'a, нужно пройти по url: http://localhost:порт/actuator/health).
 
-6. добавление EVENT DRIVEN ARCHITECTURE используя KAFKA(для добавления сторонней логики(например отправка email)):
+6. Добавление EVENT DRIVEN ARCHITECTURE используя KAFKA(для добавления сторонней логики(например отправка email)):
 6.1. создать файл docker-compose.yml и вставить туда содержимое сайта kafka -> quickstart -> docker и запустить командой docker compose up -d.
 6.2. в зависимости сервиса, который отправляет запрос на другой сервис(order-service) добавить зависимость spring-kafka
  и properties: #KAFKA PROPERTIES -> #Kafka default properties.
@@ -52,5 +52,24 @@
 6.4. добавить новый микросервис notification-service с зависимостями: web, spring-kafka, discovery-client.
 6.5. сделать сервис клиентом, как в пункте 2.4.
 6.6. добавить метод с аннотацией @KafkaListener в NotificationServiceApplication.
-6.7. добавить properties: #KAFKA PROPERTIES
+6.7. добавить properties: #KAFKA PROPERTIES.
+
+7. Заворачивание всех микросервисов в docker-контейнер:
+7.1. собрать каждый микросервис с помощью mvn clean package.
+7.2. собрать docker image микросервиса одним из 2 способов:
+ 1 способ: добавить Dockerfile в каждый микросервис(
+ 1.Dockerfile - более времязатратный на сборку image и более тяжеловесный, команда для сборки: docker build -t apigateway-dockerfile .)
+ 2.Dockerfile.layered - менее времязатратный на сборку image и более легковесный, работает с jre 9,
+ команда для сборки: docker build -f apigateway-layered -f Dockerfile.layered .)
+ пометка: перед этим нужно собрать проект командой mvc clean package.
+ 2 способ: добавить jib-плагин в корневой проект для сборки docker image без Dockerfile ->
+  добавить в settings.xml пароль и логин от docker hub -> запустить команду mvn clean compile jib:build.
+7.3. добавить для всех микросервисов новый properties: application-docker.properties, где будет укзан порт 8080 и изменен хост с localhost
+ на имя контейнера.
+7.4. добавить docker-compose.yml
+7.5. добавить data.sql в resources в микросервисы, которые используют sql-базы данных.
+7.6. запустить все контейнеры командой docker compose up -d
+
+
+
 

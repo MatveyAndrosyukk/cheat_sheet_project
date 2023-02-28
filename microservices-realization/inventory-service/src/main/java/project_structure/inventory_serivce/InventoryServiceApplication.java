@@ -1,12 +1,12 @@
-package project_structure.inventory_service;
+package project_structure.inventory_serivce;
 
-import project_structure.inventory_service.model.Inventory;
-import project_structure.inventory_service.repository.InventoryRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import project_structure.inventory_serivce.model.Inventory;
+import project_structure.inventory_serivce.repository.InventoryRepository;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -17,7 +17,7 @@ public class InventoryServiceApplication {
     }
 
     @Bean
-    public CommandLineRunner loadData(InventoryRepository inventoryRepository){
+    public CommandLineRunner loadData(InventoryRepository inventoryRepository) {
         return args -> {
             Inventory inventory = new Inventory();
             inventory.setSkuCode("iphone_13");
@@ -31,5 +31,4 @@ public class InventoryServiceApplication {
             inventoryRepository.save(inventory1);
         };
     }
-
 }

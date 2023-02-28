@@ -8,12 +8,12 @@
     <artifactId>microservices-realization</artifactId>
 
     <modules>
-        <module>inventory-service</module>
         <module>discovery-server</module>
         <module>product-service</module>
         <module>order-service</module>
-        <module>api-gateway</module>
         <module>notification-service</module>
+        <module>api-gateway</module>
+        <module>inventory-service</module>
     </modules>
 
     <properties>
@@ -68,6 +68,20 @@
                     <target>16</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:17.0.4.1_1-jre</image>
+                    </from>
+                    <to>
+                        <image>registry.hub.docker.com/zaxarleningod/${project.artifactId}</image>
+                    </to>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 </project>

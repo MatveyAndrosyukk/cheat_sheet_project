@@ -1,0 +1,18 @@
+#This Dockerfile helps to save some time for building an image.
+FROM eclipse-temurin:17.0.4.1_1-jre as builder
+WORKDIR extracted
+COPY target/*.jar app.jar
+#1. -Djarmode=layertools says a compiler to divide application on layers which are copied later in a new folder.
+#2. extract says a compiler to extract this layers from jar-file.
+#this commands work from jre 9.
+RUN java -Djarmode=layertools -jar app.jar extract
+
+FROM eclipse-temurin:17.0.4.1_1-jre
+WORKDIR application
+COPY --from=builder extracted/dependencies/ ./
+COPY --from=builder extracted/spring-boot-loader/ ./
+COPY --from=builder extracted/snapshot-dependencies/ ./
+COPY --from=builder extracted/application/ ./
+EXPOSE 8080
+#this command is used in multy stage builds
+ENTRYPOINT["java", "org.springframework.boot.loader.JarLauncher"]
